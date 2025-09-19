@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NetMon — Logowanie</title>
+  <link rel="stylesheet" href="src/style.css" />
+  <meta name="theme-color" content="#0f1724" />
+</head>
+<body>
+  <main class="login-root">
+    <section class="left-panel">
+      <div class="brand">
+        <!-- prosty SVG logo -->
+        <svg width="42" height="42" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="1" y="5" width="22" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M4 9h16M8 15v-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <h1>NetMon</h1>
+      </div>
+
+      <p class="lead">Monitoring sieci • Alerty • Stan urządzeń końcowych</p>
+
+      <ul class="features">
+        <li><strong>Realtime</strong> – status urządzeń i wykresy</li>
+        <li><strong>Alerty</strong> – powiadomienia i historię incydentów</li>
+        <li><strong>Bezpieczeństwo</strong> – rola użytkownika i audyt</li>
+      </ul>
+
+      <footer class="left-footer">© <span id="year"></span> NetMon</footer>
+    </section>
+
+    <section class="right-panel" aria-live="polite">
+      <div class="card">
+        <h2>Zaloguj się</h2>
+        <form id="loginForm" autocomplete="on">
+          <div class="field">
+            <label for="username">Użytkownik</label>
+            <input id="username" name="username" type="text" required autocomplete="username" />
+          </div>
+
+          <div class="field">
+            <label for="password">Hasło</label>
+            <div class="pw-row">
+              <input id="password" name="password" type="password" required autocomplete="current-password" />
+              <button type="button" id="togglePw" aria-label="Pokaż hasło">👁️</button>
+            </div>
+          </div>
+
+          <input type="hidden" id="csrf_token" name="csrf_token" value="" />
+
+          <div class="actions">
+            <button id="submitBtn" type="submit" class="btn primary">Zaloguj</button>
+            <a href="#" class="btn link">Pomoc</a>
+          </div>
+
+          <div id="formFeedback" class="feedback" role="status" aria-live="polite"></div>
+        </form>
+
+        <div class="quick-info">
+          <small>ProTip: użyj konta demo lub utwórz użytkownika w DB.</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
